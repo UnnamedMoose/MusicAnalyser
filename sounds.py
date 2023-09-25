@@ -110,10 +110,12 @@ for note in notes:
 pygame.init()
 
 # Play from data in an array.
-# duration = 5.  # seconds
-# sound = pygame.mixer.Sound(audio[(time > 5.) & (time < 15.), :])
-# sound.play()
-# pygame.time.wait(int(duration * 1000))
+duration = 5.  # seconds
+# sound = pygame.mixer.Sound(audio[(time > 5.) & (time < 15.), :].tobytes(),
+#                            sample_rate=sampling_rate, sample_size=audio.dtype.itemsize)
+sound = pygame.mixer.Sound(audio[(time > 5.) & (time < 15.), :])
+sound.play()
+pygame.time.wait(int(duration * 1000))
 
 # Play from a file.
 # pygame.mixer.music.load(filename)
